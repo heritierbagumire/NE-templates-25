@@ -1,5 +1,5 @@
 // app.ts
-// Main Express application setup.
+// Express application setup.
 
 import express, { Express } from 'express';
 import cors from 'cors';
