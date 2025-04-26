@@ -4,7 +4,7 @@
 import { Router } from 'express';
 import { z } from 'zod';
 import { prisma } from '../config/db';
-import { authMiddleware } from '../middleware/authMiddleware';
+import { authMiddleware, roleMiddleware } from '../middleware/authMiddleware';
 
 const router = Router();
 
