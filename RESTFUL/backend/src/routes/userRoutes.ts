@@ -3,7 +3,7 @@
 
 import { Router } from 'express';
 import { z } from 'zod';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { prisma } from '../config/db';
 import { sendEmail } from '../services/emailService';
@@ -45,7 +45,7 @@ router.post('/register', async (req, res) => {
     });
 
     const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET!, { expiresIn: '1h' });
-    res.status(201).json({ user: { id: user.id, email: user.email, role: user.role }, token });
+    res.status(201).json({ user : { id: user.id, email: user.email, role: user.role }, token });
   } catch (error) {
     res.status(400).json({ error: (error as Error).message });
   }
